@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+  <title> CatMIT | Oct 4-5</title>
+  <link rel="icon"
+        type="image/png"
+        href="assets/hack-logo-favicon.png">
+  <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link href="stylesheets/site.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <script>
+
+    var color = ['#fc0d1b', '#fd9726', '#fffd38', '#31fd2e', '#1997fc', '#6732fb'];
+    var i = 0;
+
+    $( document ).ready(function() {
+          $('.logo').hide();
+          $('.title').hide();
+          $('.tagline').hide();
+          $('.description').hide();
+          $('.date').hide();
+          $('.location').hide();
+          $('.learn').hide();
+          $('footer').hide();
+    });
+
+    setTimeout(function() { $('.logo').show(); }, 12000);
+    setTimeout(function() { $('.title').show(); }, 10000);
+    setTimeout(function() { $('.tagline').show(); }, 5000);
+    setTimeout(function() { $('.description').show(); }, 15000);
+    setTimeout(function() { $('.date').show(); }, 19000);
+    setTimeout(function() { $('.location').show(); }, 19000);
+    setTimeout(function() { $('footer').show(); }, 21700);
+
+
+    setTimeout(function() { 
+
+      setInterval(function() {
+        if (i > 5) { i = 0; }
+        $('.hacked').css('color', color[i]);
+        i++;
+      }, 400);
+
+     }, 21700);
+
+  </script>
+</head>
+<body>
+  <div class="main container">
+    <div class="content">
+      <img src="assets/cat_white.png" class="logo">
+      <div class="title">
+        CATMIT
+      </div>
+      <div class="tagline">
+        Get ready for a cat takeover like none other.
+      </div>
+      <div class="date">
+        Oct 4 - 5, 2014,
+      </div>
+      <div class="location">
+        MIT CAMPUS
+      </div>
+      <div class="description">
+        Open to all felines, and no humans.
+      </div>
+      <div class="ui dimmable learn">
+        <div class="question">
+          REGISTRATION OPENS JULY 1ST.
+          <p>WANT TO STAY UPDATED? ENTER YOUR EMAIL BELOW.</p>
+        </div>
+        <input type="text" id="email" placeholder="EMAIL ADDRESS?" autocomplete="off">
+        <button id="submit" onclick="postEmail()" type="button">KEEP ME UPDATED</button>
+        <div class="ui inverted dimmer">
+          <div class="content">
+            <div class="center">
+              Thanks for your interest! We'll send out updates closer to the date.
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="hacked">
+          <img src="assets/nyanca.gif"><br>
+          HACKED BY CATZ ANONYMOUSE
+        </div>
+      </footer>
+    </div>
+  </div>
+  <audio autoplay>
+  <source src="assets/01010101.mp3" type="audio/mpeg">
+  </audio>
+  <audio autoplay>
+  <source src="assets/dialuptone.mp3" type="audio/mpeg">
+</audio>
+  <audio loop onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 21700)">
+  <source src="assets/catloop.mp3" type="audio/mpeg">
+  </audio>
+</body>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CatGIF Control Server</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.1.1/simplex/bootstrap.min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+    body {
+        border-top: 10px solid #364a5b;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+    h3 {
+        margin-bottom: 20px;
+    }
+    .form-control {
+        display: inline;
+        width: 80%;
+    }
+    .form-control[type=submit] {
+        width: 100%;
+    }
+    i {
+        font-size: 20px;
+        padding-right: 10px;
+    }
+    pre {
+        opacity: 0.5;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="computersnore.gif">
+            </div>
+            <div class="col-sm-5 pull-right">
+                <br>
+                <pre>
+Server ID: fancycat
+Edition: tuna
+Cat GIFs installed: 0x4841434b
+</pre>
+            </div>
+        </div>
+        <h1>CatGIF Control Server</h1>
+
+        <p>Warning! This is a cat-only authorization system. Do not use if you are human, dog, panda bear, or other creature.</p>
+                        <h3>Your account has been flagged for human activity. Please confirm your identity.</h3>
+            <h4>Upload your Meow.</h4>
+            <input type="file" id="files" name="files[]" multiple />
+            <output id="list"></output>
+
+            <script>
+            function handleFileSelect(evt) {
+                var auth = false;
+                var files = evt.target.files; // FileList object
+
+                // files is a FileList of File objects. List some properties.
+                var output = [];
+                for (var i = 0, f; f = files[i]; i++) {
+                    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                        f.size, ' bytes, last modified: ',
+                        f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                        '</li>');
+                      if (f.size == 29779 && f.type == "audio/mp3"){
+                        auth = true;
+                        console.log(auth);
+                      } else {
+                        auth = false;
+                      }
+                }
+                document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+            }
+
+            document.getElementById('files').addEventListener('change', handleFileSelect, false);
+            </script>
+        </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+</body>
+
+</html>
