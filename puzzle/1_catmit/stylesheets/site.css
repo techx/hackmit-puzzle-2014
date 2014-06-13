@@ -1,0 +1,270 @@
+html {
+  height: 100%;
+}
+
+body {
+  background:url("../assets/nyan.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  color: white;
+}
+
+.main.container {
+  position: relative;
+  margin: auto;
+  top: 50%;
+  height: 625px;
+  margin-top: -312px;
+  width: 100%;
+  text-align: center;
+}
+
+.main > .content {
+  margin-top: 10px;
+}
+
+.logo {
+  height: 5em;
+  width: 5em;
+  outline: solid white 3px;
+  outline-offset: 6px;
+}
+
+.title {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 4.5em;
+  letter-spacing: 8px;
+}
+
+.tagline {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin-top: 30px;
+  letter-spacing: 1.7px;
+}
+
+.hacked {
+  margin-top: 200px;
+  font-size: 58px;
+}
+
+.date,
+.location {
+  font-size: 1.05em;
+  letter-spacing: 1.7px;
+  margin-top:2px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.description {
+  margin-top: 35px;
+  font-size: 1.05em;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.learn {
+  margin: 40px auto 20px auto;
+  padding: 30px;
+  width: 500px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1.5px solid white;
+  border-radius:2px;
+  text-align: center;
+  font-size: 1.05em;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+*::-webkit-input-placeholder {
+  color: black;
+  opacity: .3
+}
+*:-moz-placeholder {
+  /* FF 4-18 */
+  color: black;
+  opacity: .3
+}
+*::-moz-placeholder {
+  /* FF 19+ */
+  color: black;
+  opacity: .3
+}
+*:-ms-input-placeholder {
+  /* IE 10+ */
+  color: black;
+  opacity: .3
+}
+
+.question {
+  font-size:.8em;
+  font-weight: bold;
+}
+
+.question p {
+  margin-top:2px;
+  margin-bottom:25px;
+}
+
+input#email,
+button#submit {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 10px;
+  width: 90%;
+  margin-right: auto;
+  margin-left:auto;
+}
+
+input#email {
+  outline: 0;
+  border:0;
+  border-radius:3px;
+  padding-top: 10px;
+  padding-bottom:10px;
+  background: rgba(255,255,255,0.35);
+  color:rgba(0,0,0,.3);
+}
+
+input#email:focus{
+  color:rgba(0,0,0,.55);
+}
+
+button#submit {
+  border-radius:3px;
+  padding: 8px;
+  /*background: #24b9d0;*/
+  color: white;
+  background: transparent;
+  border: solid white 2px;
+  opacity:.75;
+  -webkit-transition: color 500ms, background 500ms;
+  -moz-transition: color 500ms, background 500ms;
+  -o-transition: color 500ms, background 500ms;
+  -ms-transition: color 500ms, background 500ms;
+  transition: color 500ms, background 500ms;
+}
+
+button#submit:hover {
+  background: white;
+  cursor: pointer;
+  color: #1fdd8f;
+}
+
+button#submit:focus {
+  outline: 0;
+}
+
+.ui.inverted.dimmer {
+  padding:20px;
+}
+
+
+.ui.inverted.dimmer .center{
+  line-height:1.5em;
+  letter-spacing: 1px;
+}
+
+
+footer {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+footer > .content {
+}
+
+footer > .sponsor {
+  margin: 16px 0 16px 0;
+  letter-spacing: 1.5px;
+  font-size: .8em;
+}
+
+.sponsor a {
+  color: white;
+}
+
+footer a.social {
+  text-decoration: none;
+  color: inherit;
+  margin: 0 16px;
+}
+
+footer .fa:hover {
+  text-shadow: 0 0 3px white;
+  cursor: pointer;
+}
+
+footer .left {
+  float: left;
+}
+
+footer .right {
+  float: right;
+}
+
+@media (max-width: 480px){
+
+  .main.container {
+    width: 80%;
+    height: 100%;
+    min-height: 750px;
+    text-align: center;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 2.5em;
+  }
+
+  .tagline {
+    margin-top: 0;
+    font-size: 1.5em;
+  }
+
+  .description {
+    margin-top: 12px;
+    font-size: 1em;
+  }
+
+  .date,
+  .location {
+    font-size: 1.2em;
+    display: inline-block;
+  }
+
+  .learn {
+    margin: 12px auto;
+    width: 80%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid white;
+    text-align: center;
+  }
+
+  input#email,
+  button#submit {
+    font-size: .8em;
+  }
+
+}
+
+@media(max-height: 705px) {
+  .main.container {
+    margin-top: 64px;
+    margin-bottom: 24px;
+    top: 0;
+  }
+}
