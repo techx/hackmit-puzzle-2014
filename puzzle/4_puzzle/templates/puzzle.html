@@ -1,22 +1,13 @@
-<!doctype html>
-<title>Generated Puzzle</title>
-<style type="text/css">
-body {
-	font-family: "Courier New", monospace;
-}
-h3 {
-	color: red;
-}
-#puzzle {
-	overflow: scroll;
-	height: 500px;
-	width: 600px;
-}
-</style>
+{% extends "layout.html" %}
+{% block title %}Puzzle{% endblock %}
+{% block subtitle %}What could all this be?{% endblock %}
+{% block body %}
+
+<div id="container">
 
 <h1>Read between the lines to find your clue.</h1>
 
-<h3>Puzzle ID: {{ puzzle_id }}</h3>
+<h2>Puzzle ID: {{ puzzle_id }}</h2>
 
 {% if puzzle %}
 <div id="puzzle">
@@ -26,4 +17,18 @@ h3 {
 <h1>Nothing to see here!</h1>
 {% endif %}
 
-<p>Hint: answer this clue as a GET request to /check with variables guess_line and puzzle_id</p>
+<p>Hint from Mr. Tinkles: use the SHA224 hash creatively :)</p>
+</div>
+
+<script>
+
+if(typeof(Storage) !== "undefined") {
+    localStorage.setItem("puzzle_id", "{{ puzzle_id }}");
+} else {
+    // Sorry! No Web Storage support..
+}
+
+</script>
+
+{% endblock %}
+

@@ -4,7 +4,6 @@
 import hashlib, os, sys
 
 lines = tuple(open('puzzle.txt', 'r'))
-line_number = lines[0][-4:]
 length = len(lines)
 
 

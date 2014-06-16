@@ -5,12 +5,14 @@ import random
 from flask import Flask
 from flask import render_template
 from flask_limiter import Limiter
+from flask.ext.cache import Cache
 from flask import request
 import bleach
 import os
 
 app = Flask(__name__)
 limiter = Limiter(app, global_limits=["1 per second"])
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 ### 4841434b.com app
 
@@ -28,7 +30,16 @@ secret_key = base64.b64decode('Ioa5fUurvqyOQsCAn53RLg==')
 def index():
 	return render_template('index.html')
 
+@app.route("/hex")
+def hex():
+	return render_template('hex.html')
+
+@app.route("/ascii")
+def ascii():
+	return render_template('ascii.html')
+
 @app.route("/generate")
+@cache.cached(timeout=1000)
 @limiter.limit("15 per minute")
 def generate():
 	puzzle = []
@@ -60,15 +71,20 @@ def check():
 		guess_line = bleach.clean(request.args.get('guess_line'))
 		puzzle_id = bleach.clean(request.args.get('puzzle_id')).decode('hex')
 		
-		cipher = AES.new(secret_key)
-		decrypted_answer = DecodeAES(cipher, puzzle_id)
-		
-		if guess_line == decrypted_answer:
-			return render_template('answer.html')
+		if guess_line and puzzle_id:
+
+			cipher = AES.new(secret_key)
+			decrypted_answer = DecodeAES(cipher, puzzle_id)
+			
+			if guess_line == decrypted_answer:
+				return render_template('check.html', solved=True)
+
+			else:
+				return render_template('check.html', wrong=True)
 		else:
-			return "Looks like you have some solving to do!"
+			return render_template('check.html')
 	else:
-		return "Looks like you have some solving to do!"
+		return render_template('check.html')
 
 
 @app.errorhandler(404)

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}Check{% endblock %}
+{% block subtitle %}How can you check this?{% endblock %}
+{% block body %}
+
+<div id="container">
+
+{% if solved %}
+<h1>Congrats, you solved it.</h1>
+
+<h3><a href="http://fancycat.club">On your way to the last adventure</a></h3>
+</div>
+{% else %}
+<h1>I wanna check it, neow!</h1>
+
+{% if wrong %}
+<h5 id="error">Wrong. Try again</h5>
+{% endif %}
+
+<form action="/check" method="get">
+Guess line number:<br>
+<input type="text" id="guess_line" name="guess_line" placeholder="Line number" onclick="getfocus()"><br><br>
+Puzzle ID (prefilled from last reload of puzzle page):<br>
+<input type="text" id="puzzle_id" name="puzzle_id" placeholder="Puzzle ID"><br>
+<input type="submit" value="Check it">
+</form>
+{% endif %}
+
+</div>
+
+
+<script>
+
+if(typeof(Storage) !== "undefined") {
+    document.getElementById("puzzle_id").value = localStorage.puzzle_id;
+} else {
+    // Sorry! No Web Storage support..
+}
+
+function getfocus(){
+	document.getElementById('error').style.display = 'none';
+}
+
+
+</script>
+
+
+{% endblock %}
