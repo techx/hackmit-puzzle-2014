@@ -6,9 +6,11 @@
 <div id="container">
 
 {% if solved %}
-<h1>Congrats, you solved it.</h1>
+<h1>Congrats, you solved it!</h1><br>
 
-<h3><a href="http://fancycat.club">On your way to the last adventure</a></h3>
+<img src="{{ url_for('static', filename='cat.gif') }}">
+<br>
+<h2>Your prize: <a href="http://fancycat.club">On your way to the last adventure</a></h2>
 </div>
 {% else %}
 <h1>I wanna check it, neow!</h1>

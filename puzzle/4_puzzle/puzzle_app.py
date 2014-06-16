@@ -58,7 +58,7 @@ def generate():
 	puzzle_text = ""
 
 	for line in puzzle:
-		printed_line = line + "<br>"
+		printed_line = line + "\n"
 		puzzle_text += printed_line
 
 	return render_template('puzzle.html', puzzle_id=answer_link_encrypted, puzzle=puzzle_text)

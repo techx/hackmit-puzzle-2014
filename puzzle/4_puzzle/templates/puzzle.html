@@ -10,9 +10,9 @@
 <h2>Puzzle ID: {{ puzzle_id }}</h2>
 
 {% if puzzle %}
-<div id="puzzle">
-{{ puzzle | safe }}
-</div>
+<textarea id="puzzle" spellcheck="false">
+{{ puzzle }}
+</textarea>
 {% else %}
 <h1>Nothing to see here!</h1>
 {% endif %}
