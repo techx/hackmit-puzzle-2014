@@ -1,0 +1,29 @@
+<!doctype html>
+<title>Generated Puzzle</title>
+<style type="text/css">
+body {
+	font-family: "Courier New", monospace;
+}
+h3 {
+	color: red;
+}
+#puzzle {
+	overflow: scroll;
+	height: 500px;
+	width: 600px;
+}
+</style>
+
+<h1>Read between the lines to find your clue.</h1>
+
+<h3>Puzzle ID: {{ puzzle_id }}</h3>
+
+{% if puzzle %}
+<div id="puzzle">
+{{ puzzle | safe }}
+</div>
+{% else %}
+<h1>Nothing to see here!</h1>
+{% endif %}
+
+<p>Hint: answer this clue as a GET request to /check with variables guess_line and puzzle_id</p>
