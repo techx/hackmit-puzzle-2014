@@ -7,41 +7,56 @@
 
 import hashlib, os, binascii, random
 
-EMAIL_ADDRESS = "holachek@mit.edu"
-KEY = "CanadianNyanCat"
+puzzle = []
+puzzle_length = 500
+secret = "CanadianNyanCat"
+answer_line = random.randint(10,puzzle_length)
 
-# helper functions
-def split_by_n( seq, n ):
-    """A generator to divide a sequence into chunks of n units."""
-    while seq:
-        yield seq[:n]
-        seq = seq[n:]
+puzzle.append("Read between the lines to find the key. " + str(answer_line))
+
+for i in range(1, puzzle_length):
+	puzzle.append( hashlib.sha224(secret + str(i)).hexdigest() )
+
+puzzle[answer_line] = hashlib.sha224( puzzle[answer_line-1] + puzzle[answer_line+1] ).hexdigest()
+
+if hashlib.sha224( puzzle[answer_line-1]  + puzzle[answer_line+1] ).hexdigest() == puzzle[answer_line]:
+	print "True"
+
+# PUZZLE_ID = binascii.b2a_hex(os.urandom(3))
+# PUZZLE_LINE = random.randint(10,501)
+# PUZZLE_LINE_HEX = str(hex(PUZZLE_LINE))[2:]
+
+# print "New puzzle with ID " + PUZZLE_ID + " and answer line #" + str(PUZZLE_LINE) + " // hex: " + PUZZLE_LINE_HEX
 
 
-## generate puzzle answer using email address
-GEN_KEY = hashlib.sha224(KEY + EMAIL_ADDRESS).hexdigest()
-SPLIT_KEY = list(split_by_n(GEN_KEY, 8))
-ANSWER = SPLIT_KEY[0]
+# LINE_LENGTH = 28
+# INSTRUCTIONS_LINE = 0
 
-ANSWER_LINE = random.randint(1000, 9999)
-INSTRUCTIONS_LINE = random.randint(10, 999)
+# lines = []
 
-f = open('puzzle.txt', 'w')
+# for i in range(0, 501):
+# 	if i == INSTRUCTIONS_LINE:
+# 		lines.append("Read between the lines to find the key. Your puzzle ID: " + PUZZLE_ID + PUZZLE_LINE_HEX)
+# 	else:
+# 		lines.append(binascii.b2a_hex(os.urandom(LINE_LENGTH)))
 
-for i in range(0, 10000):
-	if i == ANSWER_LINE:
-		LINE = binascii.b2a_hex(os.urandom(30)) + '[' + ANSWER + ']' + binascii.b2a_hex(os.urandom(25 - len('[' + ANSWER + ']')))
-	elif i == INSTRUCTIONS_LINE:
-		LINE = "HAHAHA you'll never figure this out. Find the secret code."
-	else:
-		LINE = binascii.b2a_hex(os.urandom(50))
-	f.write(LINE + '\n')
+# print lines[PUZZLE_LINE - 1], lines[PUZZLE_LINE + 1]
 
-f.close()
+# lines[PUZZLE_LINE] = hashlib.sha224(lines[PUZZLE_LINE - 1] + lines[PUZZLE_LINE - 1]).hexdigest()
+
+# print lines[PUZZLE_LINE]
+
+
+# f = open('puzzle.txt', 'w')
+
+# for line in lines:
+# 	f.write(line + '\n')
+
+# f.close()
 
 ## check answer
-answer_to_check = "e9b81ab7"
-correct_answer = ANSWER
+# answer_to_check = "e9b81ab7"
+# correct_answer = ANSWER
 
-if answer_to_check == correct_answer:
-	print "SOLVED!"
+# if answer_to_check == correct_answer:
+# 	print "SOLVED!"
