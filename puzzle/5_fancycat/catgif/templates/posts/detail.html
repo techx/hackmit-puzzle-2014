@@ -1,16 +1,22 @@
 {% import "_forms.html" as forms %}
 
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
-{% block page_header %}
-  <div class="page-header">
-    <h1>{{ post.title }}</h1>
-  </div>
-{% endblock %}
+{% block specialtags %}class="gray"{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block img %}<img src="{{ post.image_url }}">{% endblock %}
+{% block right %}<br><pre>
+You are logged in as <strong>{{ user.username }}</strong>
+<a href="/logout">Logout</a>
+
+<a href="/">&laquo; Back to dashboard</a>
+</pre>{% endblock %}
+
 
 {% block content %}
-  <p><img src="{{ post.image_url }}" /><p>
+
   <p>{{ post.body }}<p>
+  <h5>Your registration code: <strong>{{ post.slug }}</strong></h5>
   <p>{{ post.created_at.strftime('%H:%M %Y-%m-%d') }}</p>
   <hr>
   <h2>Comments</h2>

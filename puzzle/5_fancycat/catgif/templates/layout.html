@@ -17,14 +17,16 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 
 </head>
 
-<body>
+<body {% block specialtags %}{% endblock %}>
     <div class="container">
 
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="pagegif">
                 {% block img %}{% endblock %}
             </div>
             <div class="col-sm-5 pull-right">

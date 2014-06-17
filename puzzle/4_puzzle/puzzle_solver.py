@@ -1,21 +1,19 @@
 
 ## to solve the puzzle, the answer line is hash of above and below line
 
-import hashlib, os, sys
+import hashlib
 
-lines = tuple(open('puzzle.txt', 'r'))
-length = len(lines)
+puzzle_text = tuple(open('puzzle.txt', 'r'))
+puzzle_line_count = len(puzzle_text)
+current_line = 0
 
-
-count = 0
-
-while count < length:
-	above = lines[count-1][:-1]
-	below = lines[count+1][:-1]
+while current_line < puzzle_line_count:
+	above = puzzle_text[current_line-1][:-1]
+	below = puzzle_text[current_line+1][:-1]
 	hash1 = hashlib.sha224(above + below).hexdigest()
-	if hash1 + "\n" == lines[count]:
-		print "Found on ", count
-		sys.exit(1)
-	count += 1
-	if count > 499:
-		sys.exit(1)
+	if hash1 + "\n" == puzzle_text[current_line]:
+		print "Found on ", current_line
+		break
+	current_line += 1
+	if current_line > 499:
+		break

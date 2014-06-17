@@ -21,3 +21,32 @@ i {
 pre {
     opacity: 0.5;
 }
+
+#pagegif img {
+	width: 250px;
+}
+
+body.orange {
+	border-color: #fd7b61;
+}
+
+body.yellow {
+	border-color: #df993b;
+}
+body.gray {
+	border-color: #333;
+}
+h4 {
+	font-size: 24px;
+}
+.post {
+	margin-bottom: 30px;
+}
+
+.post img {
+	width: 100%;
+}
+h5 {
+	font-size: 24px;
+	margin-top: 40px;
+}

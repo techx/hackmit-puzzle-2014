@@ -1,15 +1,26 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
+
+{% block specialtags %}class="orange"{% endblock %}
+{% block title %}Dashboard{% endblock %}
+{% block img %}<img src="{{ url_for('static', filename='catpurr.gif') }}">{% endblock %}
+{% block right %}<br><pre>
+You are logged in as <strong>{{ user.username }}</strong>
+<a href="/logout">Logout</a>
+</pre>{% endblock %}
 
 {% block content %}
+    <hr>
     {% for post in posts %}
-      <h2><a href="{{ url_for('posts.detail', slug=post.slug) }}">{{ post.title }}</a></h2>
-      <p><img src="{{ post.image_url }}" /><p>
-      <p>{{ post.body|truncate(100) }}</p>
-      <p>
+      <div class="post col-sm-6">
+      <h4><a href="{{ url_for('posts.detail', slug=post.slug) }}">{{ post.title }}</a></h4><em>{{ post.body|truncate(100) }}</em>
+      <p><a href="{{ url_for('posts.detail', slug=post.slug) }}"><img src="{{ post.image_url }}" /></a></p>
+      </div>
+      
+      <!-- <p>
         {{ post.created_at.strftime('%H:%M %Y-%m-%d') }} |
         {% with total=post.comments|length %}
             {{ total }} comment {%- if total > 1 %}s{%- endif -%}
         {% endwith %}
-      </p>
+      </p> -->
     {% endfor %}
 {% endblock %}

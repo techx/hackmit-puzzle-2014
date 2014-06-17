@@ -1,5 +1,15 @@
-{% extends "admin/base.html" %}
+{% extends "layout.html" %}
 {% import "_forms.html" as forms %}
+
+{% block specialtags %}class="yellow"{% endblock %}
+{% block title %}Admin{% endblock %}
+{% block img %}<img src="{{ url_for('static', filename='upside_cat.gif') }}">{% endblock %}
+{% block right %}<br><pre>
+You are logged in as <strong>{{ user.username }}</strong>
+<a href="/logout">Logout</a>
+
+<a href="/admin">&laquo; Back to admin dashboard</a>
+</pre>{% endblock %}
 
 {% block content %}
   <h2>

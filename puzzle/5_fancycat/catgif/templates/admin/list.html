@@ -1,6 +1,16 @@
-{% extends "admin/base.html" %}
+{% extends "layout.html" %}
+
+{% block specialtags %}class="yellow"{% endblock %}
+{% block title %}Admin{% endblock %}
+{% block img %}<img src="{{ url_for('static', filename='upside_cat.gif') }}">{% endblock %}
+{% block right %}<br><pre>
+You are logged in as <strong>{{ user.username }}</strong>
+<a href="/logout">Logout</a>
+</pre>{% endblock %}
 
 {% block content %}
+<a href="{{ url_for("admin.create") }}" class="btn primary">Create new post</a>
+
   <table  class="condensed-table zebra-striped">
     <thead>
       <th>Title</th>
