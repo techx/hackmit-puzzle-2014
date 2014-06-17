@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block img %}<img src="{{ url_for('static', filename='computersnore.gif') }}">{% endblock %}
+{% block right %}<br><pre>
+Server ID: fancycat
+Edition: <a href="https://github.com/mrtinkles/fancycat">tuna</a>
+Cat GIFs installed: 0x4841434b
+</pre>{% endblock %}
+{% block content %}
+
+<p>Warning! This is a cat-only authorization system. Do not use if you are human, dog, panda bear, or other creature.</p>
+
+{# Display errors (if there are any). #}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+        <h3>Proceed with your credentials:</h3>
+        <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-sm-5">
+                <i class="fa fa-heart"></i>
+                <input placeholder="Meow ID" type="text" name="login" class="form-control" required="true" id="login">
+                <br>
+                <i class="fa fa-key"></i>
+                <input placeholder="Password" type="password" name="password" class="form-control" required="true" id="password">
+            </div>
+
+            <div class="col-sm-4">
+                <i class="fa fa-question"></i>
+                <select class="form-control">
+                    <option selected>Security question</option>
+                    <option value="gif">GIF, hard g</option>
+                    <option value="jif">JIF, soft g</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="form-control btn btn-success">Meow</button>
+            </div>
+        </div>
+        </form>
+
+{% endblock %}

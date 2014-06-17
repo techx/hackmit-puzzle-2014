@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block subtitle %}ASCII, Hex, Base64, UTF-8, and more!{% endblock %}
+{% block body %}
+
+<div id="container">
+Welcome to HexMania, the website that's all about ways to represent information in different encodings. There are seriously a lot of different ways to represent data on the computer, some of which are listed below:
+
+<ul>
+	<li><strong>ASCII</strong> (American Standard Code for Information Interchange) used to be the standard that encoded 128 specific characters (0-9, a-z, A-Z, some punctation, and control codes) into 7-bit binary integers</li>
+	<li><strong>UTF-8</strong> is now the de facto standard encoding on the web. It is a variable-width encoding that can represent every Unicode character (that's over 110,000 characters--it actually includes ASCII as a subset!)</li>
+	<li><strong>Base64</strong> is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's convienient when you want to express binary data in an easily copyable string with no weird characters. (Encryption algorithms often output in base64.)</li>
+	<li><strong>Hexadecimal</strong> is a specialized encoding that stores data in 16 characters 0-9 (to represent 0-9) and A-F (to represent 10-15). It's used in some counting systems (called base 16) and also to confuse people like on the puzzle on this website.</li>
+	<li><strong>Decimal</strong> is the most common way humans count. It makes sense--we have 10 fingers!</li>
+	<li><strong>Binary</strong> is the language of computers and digital electrical signals. You can either have a 0 (completely off) or a 1 (completely on) and nothing in between.</li>
+</ul>
+
+In case it wasn't confusing enough, here's a GIF expressed in binary, text, and hex formats:
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/5/59/Gifs_in_txt_and_hex.gif">
+
+<br><br>
+Data from Wikipedia.
+</div>
+
+{% endblock %}

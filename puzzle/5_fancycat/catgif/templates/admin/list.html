@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block specialtags %}class="yellow"{% endblock %}
+{% block title %}Admin{% endblock %}
+{% block img %}<img src="{{ url_for('static', filename='upside_cat.gif') }}">{% endblock %}
+{% block right %}<br><pre>
+You are logged in as <strong>{{ user.username }}</strong>
+<a href="/logout">Logout</a>
+</pre>{% endblock %}
+
+{% block content %}
+<a href="{{ url_for("admin.create") }}" class="btn primary">Create new post</a>
+
+  <table  class="condensed-table zebra-striped">
+    <thead>
+      <th>Title</th>
+      <th>Created</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+      <tr>
+        <th><a href="{{ url_for('admin.edit', slug=post.slug) }}">{{ post.title }}</a></th>
+        <td>{{ post.created_at.strftime('%Y-%m-%d') }}</td>
+        <td><a href="{{ url_for("admin.edit", slug=post.slug) }}" class="btn primary">Edit</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

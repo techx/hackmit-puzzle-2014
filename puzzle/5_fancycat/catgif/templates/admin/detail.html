@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% import "_forms.html" as forms %}
+
+{% block specialtags %}class="yellow"{% endblock %}
+{% block title %}Admin{% endblock %}
+{% block img %}<img src="{{ url_for('static', filename='upside_cat.gif') }}">{% endblock %}
+{% block right %}<br><pre>
+You are logged in as <strong>{{ user.username }}</strong>
+<a href="/logout">Logout</a>
+
+<a href="/admin">&laquo; Back to admin dashboard</a>
+</pre>{% endblock %}
+
+{% block content %}
+  <h2>
+    {% if create %}
+      Add new Post
+    {% else %}
+      Edit Post
+    {% endif %}
+  </h2>
+
+  <form action="?{{ request.query_string }}" method="post">
+    {{ forms.render(form) }}
+    <div class="actions">
+      <input type="submit" class="btn primary" value="save">
+      <a href="{{ url_for("admin.index") }}" class="btn secondary">Cancel</a>
+    </div>
+  </form>
+{% endblock %}
