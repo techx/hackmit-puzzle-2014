@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<Response>
+	<Play>http://voice.holachek.com/next_clue.mp3</Play>
+	<Pause length="1" />
+	<Play>http://voice.holachek.com/cats_voice.mp3</Play>
+	<Pause length="10" />
+	<Say>Need another hint? Try Google.com</Say>
+</Response>
