@@ -16,9 +16,13 @@ There are 5 parts to the puzzle. Let's break it down step by step:
 5. FancyCat Club is a bit more nuanced than a simple Flask app. It's database driven (MongoDB). Here's how I set it up on DigitalOcean:
 
     a. Setup initial user accounts, etc
-    b. Install Apache2, Python, requirements.txt
-    c. Install Apache2 WSGI
-    d. Create WSGI app
-    e. Reload configs
     
-    Currently, to change configurations, log into our server with `ssh catgif@fancycat.club -p 2014`. Your public key must be added in order to login.
+    b. Install Apache2, MongoDB, Python, requirements.txt
+    
+    c. Install Apache2 WSGI
+    
+    d. Create WSGI app
+    
+    e. Reload configs, populate DB with `python manage.py shell < /path/to/populate_db.py` (run inside `catgif` directory)
+    
+    Currently, to change configurations, log into our server with `ssh catgif@107.170.159.99 -p 2014`. Your public key must be added in order to login.
