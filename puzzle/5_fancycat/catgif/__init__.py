@@ -15,6 +15,7 @@ app.config['STORMPATH_ENABLE_REGISTRATION'] = False
 app.config['STORMPATH_LOGIN_TEMPLATE'] = 'login.html'
 app.config['STORMPATH_REDIRECT_URL'] = '/'
 app.config['STORMPATH_LOGIN_URL'] = '/login'
+app.config['INVITE_CODE_SERVER'] = '107.170.159.99:2014'
 
 
 
