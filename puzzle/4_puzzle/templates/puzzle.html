@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Puzzle{% endblock %}
+{% block subtitle %}What could all this be?{% endblock %}
+{% block body %}
+
+<div id="container">
+
+<h1>Read between the lines to find your clue.</h1>
+
+<h2>Puzzle ID: {{ puzzle_id }}</h2>
+
+{% if puzzle %}
+<textarea id="puzzle" spellcheck="false">
+{{ puzzle }}
+</textarea>
+{% else %}
+<h1>Nothing to see here!</h1>
+{% endif %}
+
+<p>Hint from Mr. Tinkles: use the SHA224 hash creatively :)</p>
+</div>
+
+<script>
+
+if(typeof(Storage) !== "undefined") {
+    localStorage.setItem("puzzle_id", "{{ puzzle_id }}");
+} else {
+    // Sorry! No Web Storage support..
+}
+
+</script>
+
+{% endblock %}
+

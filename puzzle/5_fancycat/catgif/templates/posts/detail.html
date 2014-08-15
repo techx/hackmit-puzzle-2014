@@ -1,0 +1,40 @@
+{% import "_forms.html" as forms %}
+
+{% extends "layout.html" %}
+
+{% block specialtags %}class="gray"{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block img %}<img src="{{ post.image_url }}">{% endblock %}
+{% block right %}<br><pre>
+You are logged in as <strong>{{ user.username }}</strong>
+<a href="/logout">Logout</a>
+
+<a href="/">&laquo; Back to dashboard</a>
+</pre>{% endblock %}
+
+
+{% block content %}
+
+  <p>{{ post.body }}<p>
+  <h5>Your registration code: <strong>{{ post.slug }}</strong></h5>
+  <p>{{ post.created_at.strftime('%H:%M %Y-%m-%d') }}</p>
+  <hr>
+  <h2>Comments</h2>
+  {% if post.comments %}
+    {% for comment in post.comments %}
+       <p>{{ comment.body }}</p>
+       <p><strong>{{ comment.author }}</strong> <small>on {{ comment.created_at.strftime('%H:%M %Y-%m-%d') }}</small></p>
+      {{ comment.text }}
+    {% endfor %}
+  {% endif %}
+
+  <hr>
+  <h2>Add a comment</h2>
+  <form action="." method="post">
+    {{ forms.render(form) }}
+    <div class="actions">
+      <input type="submit" class="btn primary" value="comment">
+    </div>
+  </form>
+
+{% endblock %}

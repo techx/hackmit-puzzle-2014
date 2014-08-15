@@ -1,0 +1,26 @@
+<!doctype html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+<div id="header">
+	
+<h1>4841434b.com &ndash; {{ self.title() }}</h1>
+<h3>{% block subtitle %}{% endblock %}</h3>
+
+<ul>
+	<li><a href="/">HOME</a></li>
+	<li><a href="/hex">HEX CONVERTOR</a></li>
+	<li><a href="/ascii">WHAT IS ASCII?</a></li>
+	<li><a href="/generate">PUZZLE FOR YOU</a></li>
+	<li><a href="/check">CHECK IT!</a></li>
+</ul>
+
+</div>
+
+{% block body %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+	font-family: "Lucida Grande", sans-serif;
+	background: url(geometry2.png);
+	padding: 0;
+	margin: 0;
+}
+#header {
+	background: #333 url(catball.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+	color: #fff;
+	padding: 20px;
+}
+
+#header ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-top: 30px;
+}
+
+#header ul li {
+	display: inline;
+}
+
+#header ul li a {
+	padding: 10px 20px;
+	background: #ddd;
+	text-decoration: none;
+	color: #333;
+}
+
+#header ul li a:hover {
+	background: #ae5717;
+	color: #fff;
+}
+
+h1 {
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+h3 {
+	color: #ddd;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+h5 {
+	background: #ae5717;
+	color: #fff;
+	font-size: 48px;
+	padding: 0;
+	margin: 0;
+	float: right;
+	width: 50%;
+}
+#container {
+	padding: 20px;
+}
+#puzzle {
+	font-family: "Courier New", monospace;
+	overflow: scroll;
+	height: 500px;
+	width: 600px;
+}
+form {
+	margin-top: 20px;
+}
+#guess_line {
+	font-size: 48px;
+	width: 300px;
+}
+#puzzle_id {
+	width: 80%;
+	font-size: 24px;
+}
+input[type=submit] {
+	width: 200px;
+	height: 100px;
+	padding: 20px;
+	margin-top: 20px;
+	border: 3px solid #000;
+	background: #ae5717;
+	color: #fff;
+	font-size: 24px;
+}
+
+input[type=submit]:hover {
+	background: #7e360e;
+}
