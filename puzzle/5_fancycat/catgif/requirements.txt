@@ -9,7 +9,7 @@ WTForms==1.0.5
 Werkzeug==0.9.6
 facebook-sdk==0.4.0
 flask-mongoengine==0.7.0
-httplib2==0.9
+httplib2==0.18.0
 itsdangerous==0.24
 mongoengine==0.8.7
 oauth2client==1.2
