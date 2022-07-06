@@ -10,7 +10,7 @@ chardet==2.0.1
 colorama==0.2.5
 configobj==4.7.2
 gunicorn==17.5
-html5lib==0.999
+html5lib==0.999999999
 itsdangerous==0.24
 pyOpenSSL==0.13
 pycrypto==2.6.1
