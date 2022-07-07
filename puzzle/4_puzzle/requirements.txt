@@ -15,7 +15,7 @@ itsdangerous==0.24
 pyOpenSSL==0.13
 pycrypto==2.6.1
 pyserial==2.6
-requests==2.2.1
+requests==2.20.0
 six==1.5.2
 ssh-import-id==3.21
 urllib3==1.7.1
